@@ -1,0 +1,14 @@
+[gd_scene format=4 uid="uid://d3loh6kiqb5uy"]
+
+[ext_resource type="PackedScene" uid="uid://d1khbxk8kke1b" path="res://Prefabs/Jogador.tscn" id="1_gjd7l"]
+[ext_resource type="TileSet" uid="uid://bjhgkuma1aitd" path="res://Tilesets/TilesetTeste.tres" id="2_l7pwf"]
+
+[node name="FaseTeste" type="Node2D" unique_id=1903009012]
+
+[node name="Jogador" parent="." unique_id=526484417 instance=ExtResource("1_gjd7l")]
+position = Vector2(229, 441)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2142837354]
+scale = Vector2(6, 6)
+tile_map_data = PackedByteArray("AAAAAAoAAAADAAAAAAABAAoAAAADAAAAAAACAAoAAAADAAAAAAADAAoAAAADAAAAAAAEAAoAAAADAAAAAAAFAAoAAAADAAAAAAAGAAoAAAADAAAAAAAHAAoAAAADAAAAAAAIAAoAAAADAAAAAAAJAAoAAAADAAAAAAAKAAoAAAADAAAAAAALAAoAAAADAAAAAAAMAAoAAAADAAAAAAANAAoAAAADAAAAAAAOAAoAAAADAAAAAAAPAAoAAAADAAAAAAAQAAoAAAADAAAAAAARAAoAAAADAAAAAAASAAoAAAADAAAAAAATAAoAAAADAAAAAAAAAAkAAAADAAAAAAAAAAgAAAADAAAAAAAAAAcAAAADAAAAAAAAAAYAAAADAAAAAAAAAAUAAAADAAAAAAAAAAQAAAADAAAAAAAAAAMAAAADAAAAAAAAAAIAAAADAAAAAAA=")
+tile_set = ExtResource("2_l7pwf")

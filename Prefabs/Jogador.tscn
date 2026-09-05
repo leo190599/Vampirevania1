@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d1khbxk8kke1b"]
+
+[ext_resource type="Texture2D" uid="uid://cxdbdhdfqo13x" path="res://icon.svg" id="1_d7j23"]
+[ext_resource type="Script" uid="uid://dgqma1y3sw04o" path="res://Scripts/Jogador.gd" id="1_fslql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pauaf"]
+size = Vector2(130, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t718"]
+size = Vector2(124, 14)
+
+[node name="Jogador" type="CharacterBody2D" unique_id=526484417]
+script = ExtResource("1_fslql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=56010038]
+shape = SubResource("RectangleShape2D_pauaf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2008450297]
+texture = ExtResource("1_d7j23")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=70803438]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=132673116]
+position = Vector2(0, 66)
+shape = SubResource("RectangleShape2D_8t718")
+
+[node name="Camera2D" type="Camera2D" parent="Area2D" unique_id=2118923829]
+limit_left = 0
+limit_bottom = 1080
