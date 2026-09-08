@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SubitemObjetoScriptavel" format=3 uid="uid://cpr0ppw1okmga"]
+
+[ext_resource type="Script" uid="uid://bqfd3wsec6pbt" path="res://Scripts/ObjetosScriptaveis/SubitemObjetoScriptavel.gd" id="1_wue6i"]
+
+[resource]
+script = ExtResource("1_wue6i")
+metadata/_custom_type_script = "uid://bqfd3wsec6pbt"

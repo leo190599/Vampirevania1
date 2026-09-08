@@ -14,3 +14,5 @@ func processar_fisico(delta:float)->void:
 		jogador._trocar_estado(EstadoNoArJogador.new())
 	if(Input.is_action_just_pressed("Ataque")):
 		jogador._trocar_estado(EstadoAtaqueJogador.new())
+	if(Input.is_action_pressed("Baixo")):
+		jogador._trocar_estado(EstadoAbaixadoJogador.new())

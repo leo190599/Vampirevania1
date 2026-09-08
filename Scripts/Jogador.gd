@@ -1,10 +1,11 @@
 extends CharacterBody2D
 class_name Jogador
 
-var gravidade=75
-var vel_de_movimento=500
-var vel_de_pulo=-2000
+@export var gravidade=75
+@export var vel_de_movimento=500
+@export var vel_de_pulo=-2000
 
+var subitem:SubitemObjetoScriptavel
 var vel=Vector2.ZERO
 var estado:EstadoBaseJogador
 var area_deteccao_chao:Area2D
@@ -12,7 +13,6 @@ var area_deteccao_chao:Area2D
 func _ready() -> void:
 	area_deteccao_chao=$Area2D
 	_trocar_estado(EstadoNoArJogador.new())
-	print(estado)
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
