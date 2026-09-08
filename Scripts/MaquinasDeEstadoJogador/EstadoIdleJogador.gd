@@ -12,3 +12,5 @@ func processar_fisico(delta:float)->void:
 	if(Input.is_action_just_pressed("pulo")):
 		jogador.vel.y=jogador.vel_de_pulo
 		jogador._trocar_estado(EstadoNoArJogador.new())
+	if(Input.is_action_just_pressed("Ataque")):
+		jogador._trocar_estado(EstadoAtaqueJogador.new())
