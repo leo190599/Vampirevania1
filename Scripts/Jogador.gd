@@ -10,12 +10,14 @@ class_name Jogador
 @export var mana_max:int=10
 
 #Variaveis de backend
+var coletavelSubItemAtalho:PackedScene
 var olhando_para_direita:bool=true
 var vel=Vector2.ZERO
 var estado:EstadoBaseJogador
 var area_deteccao_chao:Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	coletavelSubItemAtalho=load("res://Prefabs/Objetos/ColetavelSubItem.tscn")
 	area_deteccao_chao=$Area2D
 	_trocar_estado(EstadoNoArJogador.new())
 	pass # Replace with function body.
@@ -41,11 +43,12 @@ func flipar_jogador(direita:bool)->void:
 		$Sprite2D.flip_h=false
 		$AreaDeAtaque.position.x=abs($AreaDeAtaque.position.x)
 		$AreaDeAtaque/Sprite2D.flip_h=false
+		$PontoInstanciaAntigoSubItem.position.x=-abs($PontoInstanciaAntigoSubItem.position.x)
 	else:
 		$Sprite2D.flip_h=true
 		$AreaDeAtaque.position.x=-abs($AreaDeAtaque.position.x)
 		$AreaDeAtaque/Sprite2D.flip_h=true
-		
+		$PontoInstanciaAntigoSubItem.position.x=abs($PontoInstanciaAntigoSubItem.position.x)
 	pass
 func usar_sub_item()->void:
 	if(subitem!=null):
@@ -58,3 +61,11 @@ func usar_sub_item()->void:
 			get_tree().current_scene.add_child(novo_subItem)
 		print(mana)
 		pass
+
+func trocar_subItem(novoSubItem:SubitemObjetoScriptavel):
+	if(subitem):
+		var coletavelAntigoSubItem:ColetavelSubItem=coletavelSubItemAtalho.instantiate()
+		coletavelAntigoSubItem.subItem=subitem
+		coletavelAntigoSubItem.position=$PontoInstanciaAntigoSubItem.global_position
+		get_tree().current_scene.call_deferred("add_child",coletavelAntigoSubItem)
+	subitem=novoSubItem

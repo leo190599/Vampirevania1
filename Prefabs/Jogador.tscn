@@ -42,3 +42,6 @@ shape = SubResource("RectangleShape2D_wdrlx")
 
 [node name="Sprite2D" type="Sprite2D" parent="AreaDeAtaque" unique_id=494720796]
 texture = ExtResource("1_d7j23")
+
+[node name="PontoInstanciaAntigoSubItem" type="Node2D" parent="." unique_id=174216465]
+position = Vector2(-180, -93)
