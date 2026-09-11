@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="SubitemObjetoScriptavel" format=3 uid="uid://cpr0ppw1okmga"]
 
 [ext_resource type="Script" uid="uid://bqfd3wsec6pbt" path="res://Scripts/ObjetosScriptaveis/SubitemObjetoScriptavel.gd" id="1_wue6i"]
+[ext_resource type="PackedScene" uid="uid://b3hcffhvqjlv1" path="res://Prefabs/SubItens/Adaga.tscn" id="2_u3try"]
 
 [resource]
 script = ExtResource("1_wue6i")
+subitem = ExtResource("2_u3try")
 metadata/_custom_type_script = "uid://bqfd3wsec6pbt"

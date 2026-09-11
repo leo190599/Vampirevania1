@@ -9,6 +9,9 @@ size = Vector2(130, 130)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8t718"]
 size = Vector2(124, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdrlx"]
+size = Vector2(130, 130)
+
 [node name="Jogador" type="CharacterBody2D" unique_id=526484417]
 script = ExtResource("1_fslql")
 
@@ -29,3 +32,13 @@ shape = SubResource("RectangleShape2D_8t718")
 [node name="Camera2D" type="Camera2D" parent="Area2D" unique_id=2118923829]
 limit_left = 0
 limit_bottom = 1080
+
+[node name="AreaDeAtaque" type="Area2D" parent="." unique_id=891549444]
+position = Vector2(208, 0)
+scale = Vector2(2.195713, 0.35264763)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeAtaque" unique_id=17881322]
+shape = SubResource("RectangleShape2D_wdrlx")
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaDeAtaque" unique_id=494720796]
+texture = ExtResource("1_d7j23")

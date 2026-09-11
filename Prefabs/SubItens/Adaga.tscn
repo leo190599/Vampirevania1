@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b3hcffhvqjlv1"]
+
+[ext_resource type="Script" uid="uid://bq8fco7uigqu7" path="res://Scripts/Subitens/Adaga.gd" id="1_g7xrs"]
+[ext_resource type="Texture2D" uid="uid://dntu76bxx3kfk" path="res://Placeholder/Sprites/Adaga.png" id="2_vp6a6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pauaf"]
+size = Vector2(80, 25)
+
+[node name="Adaga" type="Area2D" unique_id=844624822]
+script = ExtResource("1_g7xrs")
+vel = Vector2(20, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1719946124]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_pauaf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=704604808]
+texture_filter = 1
+scale = Vector2(4.916677, 4.916677)
+texture = ExtResource("2_vp6a6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=23149669]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

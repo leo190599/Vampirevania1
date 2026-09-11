@@ -3,6 +3,7 @@ class_name EstadoNoArJogador
 
 func processar_fisico(delta:float)->void:
 	if(jogador):
+		print(jogador.vel)
 		jogador.vel.y+=jogador.gravidade
 		jogador.velocity=jogador.vel
 		jogador.move_and_slide()
