@@ -53,6 +53,7 @@ func usar_sub_item()->void:
 			mana-=subitem.custo
 			var novo_subItem:SubitemBase=subitem.subitem.instantiate()
 			novo_subItem.olhando_para_direita=olhando_para_direita
+			novo_subItem.jogador=self
 			novo_subItem.position=global_position
 			get_tree().current_scene.add_child(novo_subItem)
 		print(mana)
