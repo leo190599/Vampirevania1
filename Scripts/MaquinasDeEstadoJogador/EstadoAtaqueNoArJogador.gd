@@ -1,6 +1,8 @@
 extends EstadoBaseJogador
 class_name EstadoAtaqueNoArJogador
 
+var atacando:bool=false
+
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
 	iniciar_ataque()
@@ -16,8 +18,15 @@ func processar_fisico(delta:float)->void:
 				jogador._trocar_estado(EstadoAndandoJogador.new())
 			else:
 				jogador._trocar_estado(EstadoIdleJogador.new())
+	
+		if(atacando):
+			jogador.atacar()
 
 func iniciar_ataque()->void:
-	print("ataque")
+	atacando=true
 func terminar_ataque()->void:
-	print("TerminadoAtaque")
+	atacando=false
+	pass
+func terminar_estado()->void:
+	jogador.limpar_lista_inimigos()
+	

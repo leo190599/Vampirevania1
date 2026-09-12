@@ -12,7 +12,6 @@ size = Vector2(130, 130)
 
 [node name="ColetavelSubItem" type="CharacterBody2D" unique_id=1205302791]
 collision_layer = 0
-collision_mask = 2
 script = ExtResource("1_kb04g")
 subItem = ExtResource("2_ut5cc")
 vel = 600.0
@@ -27,6 +26,7 @@ texture = ExtResource("3_ut5cc")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=136596701]
 collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=189482078]
 shape = SubResource("RectangleShape2D_8t718")

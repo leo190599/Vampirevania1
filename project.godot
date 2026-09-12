@@ -61,6 +61,13 @@ SubItem={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Chao"
+2d_physics/layer_2="Jogador"
+2d_physics/layer_3="Objetos"
+2d_physics/layer_4="Inimigos"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c4t6y6ij26nl6"]
+
+[ext_resource type="Script" uid="uid://c3ol4tlyu8id1" path="res://Scripts/Inimigos/InimigoZumbi.gd" id="1_od6s8"]
+[ext_resource type="Texture2D" uid="uid://dh1l107jvl3dm" path="res://Placeholder/Legacy Collection/Assets/Gothicvania/Characters/meerman/Sprites/meerman1.png" id="1_wsfdj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pauaf"]
+size = Vector2(20, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdrlx"]
+size = Vector2(20, 31.2)
+
+[node name="InimigoZumbi" type="CharacterBody2D" unique_id=1066377874]
+scale = Vector2(10, 10)
+collision_layer = 8
+script = ExtResource("1_od6s8")
+vida = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1485628687]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_pauaf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1197791091]
+texture_filter = 1
+texture = ExtResource("1_wsfdj")
+
+[node name="AreaDeRecebimentoDeDano" type="Area2D" parent="." unique_id=486269689]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeRecebimentoDeDano" unique_id=247949107]
+position = Vector2(0, 1.4000016)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_wdrlx")

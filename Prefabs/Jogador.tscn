@@ -12,7 +12,11 @@ size = Vector2(124, 14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdrlx"]
 size = Vector2(130, 130)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y1pt"]
+size = Vector2(131.205, 129)
+
 [node name="Jogador" type="CharacterBody2D" unique_id=526484417]
+collision_layer = 2
 script = ExtResource("1_fslql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=56010038]
@@ -23,7 +27,6 @@ texture = ExtResource("1_d7j23")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=70803438]
 collision_layer = 2
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=132673116]
 position = Vector2(0, 66)
@@ -36,6 +39,8 @@ limit_bottom = 1080
 [node name="AreaDeAtaque" type="Area2D" parent="." unique_id=891549444]
 position = Vector2(208, 0)
 scale = Vector2(2.195713, 0.35264763)
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeAtaque" unique_id=17881322]
 shape = SubResource("RectangleShape2D_wdrlx")
@@ -45,3 +50,9 @@ texture = ExtResource("1_d7j23")
 
 [node name="PontoInstanciaAntigoSubItem" type="Node2D" parent="." unique_id=174216465]
 position = Vector2(-180, -93)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1753432549]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1311839457]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1y1pt")
