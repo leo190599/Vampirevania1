@@ -23,6 +23,7 @@ var vel=Vector2.ZERO
 var estado:EstadoBaseJogador
 var area_deteccao_chao:Area2D
 var lista_de_inimigos_atacados_no_ataque_atual:Array[InimigoBase]
+var lista_de_itens_quebraveis_atacados:Array[ItemQuebravelBase]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	coletavelSubItemAtalho=load("res://Prefabs/Objetos/ColetavelSubItem.tscn")
@@ -92,6 +93,7 @@ func tomar_dano(dano:int):
 
 func atacar():
 	var inimigo:InimigoBase
+	var item_quebravel:ItemQuebravelBase
 	var areas:Array[Area2D]=$AreaDeAtaque.get_overlapping_areas()
 	for area in  areas:
 		inimigo=area.get_parent() as InimigoBase
@@ -99,10 +101,22 @@ func atacar():
 			if(!lista_de_inimigos_atacados_no_ataque_atual.has(inimigo)):
 				lista_de_inimigos_atacados_no_ataque_atual.append(inimigo)
 				inimigo.tomar_dano(dano)
+		else:
+			item_quebravel=area as ItemQuebravelBase
+			if(item_quebravel):
+				if(!lista_de_itens_quebraveis_atacados.has(item_quebravel)):
+					lista_de_itens_quebraveis_atacados.append(item_quebravel)
+					if(dano<=0):
+						item_quebravel.tomar_dano(1)
+					else:
+						item_quebravel.tomar_dano(dano)
 		pass
 	pass
 func limpar_lista_inimigos():
 	lista_de_inimigos_atacados_no_ataque_atual.clear()
+	
+func limpar_lista_de_itens_quebraveis():
+	lista_de_itens_quebraveis_atacados.clear()
 
 func morrer():
 	print("morreu")

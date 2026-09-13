@@ -16,6 +16,7 @@ func processar_fisico(delta:float)->void:
 func terminar_estado()->void:
 	super()
 	jogador.limpar_lista_inimigos()
+	jogador.limpar_lista_de_itens_quebraveis()
 
 func iniciar_ataque()->void:
 	atacando=true

@@ -67,6 +67,7 @@ SubItem={
 2d_physics/layer_2="Jogador"
 2d_physics/layer_3="Objetos"
 2d_physics/layer_4="Inimigos"
+2d_physics/layer_5="Objetos interativos"
 
 [physics]
 
@@ -74,5 +75,6 @@ SubItem={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"

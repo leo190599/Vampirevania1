@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cumi5p20nj1oa"]
+
+[ext_resource type="Script" uid="uid://b0x5lmqckqyoy" path="res://Scripts/Objetos/ItensQuebraveis/ItemQuebravelVazio.gd" id="1_dkax3"]
+[ext_resource type="Texture2D" uid="uid://c76lxsuk5n00p" path="res://Placeholder/Legacy Collection/Assets/Misc/colorful-tileset/PNG/layers/cloud.png" id="2_v5lfk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pauaf"]
+size = Vector2(86, 60)
+
+[node name="ItemQuebravelVazio" type="Area2D" unique_id=1560831294]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_dkax3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1722271462]
+shape = SubResource("RectangleShape2D_pauaf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1958833190]
+texture = ExtResource("2_v5lfk")

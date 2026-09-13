@@ -1,11 +1,16 @@
 [gd_scene format=4 uid="uid://d3loh6kiqb5uy"]
 
 [ext_resource type="PackedScene" uid="uid://d1khbxk8kke1b" path="res://Prefabs/Jogador.tscn" id="1_gjd7l"]
+[ext_resource type="PackedScene" uid="uid://cumi5p20nj1oa" path="res://Prefabs/Objetos/ItensQuebraveis/ItemQuebravelVazio.tscn" id="1_lbdpb"]
 [ext_resource type="TileSet" uid="uid://bjhgkuma1aitd" path="res://Tilesets/TilesetTeste.tres" id="2_l7pwf"]
 [ext_resource type="PackedScene" uid="uid://dkvr36ht0b7j6" path="res://Prefabs/Objetos/ColetavelSubItem.tscn" id="4_4lelq"]
 [ext_resource type="PackedScene" uid="uid://c4t6y6ij26nl6" path="res://Prefabs/Inimigos/InimigoZumbi.tscn" id="4_lbdpb"]
+[ext_resource type="PackedScene" uid="uid://bpj58fgo32pe4" path="res://Prefabs/Objetos/ItensQuebraveis/ItemQuebravelComSubItem.tscn" id="6_lqt1g"]
 
 [node name="FaseTeste" type="Node2D" unique_id=1903009012]
+
+[node name="ItemQuebravelVazio" parent="." unique_id=1560831294 instance=ExtResource("1_lbdpb")]
+position = Vector2(647, 558)
 
 [node name="Jogador" parent="." unique_id=526484417 instance=ExtResource("1_gjd7l")]
 position = Vector2(229, 441)
@@ -24,3 +29,6 @@ position = Vector2(1355, 521)
 [node name="InimigoZumbi" parent="." unique_id=1066377874 instance=ExtResource("4_lbdpb")]
 position = Vector2(1312, 846)
 scale = Vector2(7, 7)
+
+[node name="ItemQuebravelComSubItem" parent="." unique_id=1391917746 instance=ExtResource("6_lqt1g")]
+position = Vector2(817, 558)

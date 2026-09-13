@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bpj58fgo32pe4"]
+
+[ext_resource type="Script" uid="uid://3on3pbgjin4j" path="res://Scripts/Objetos/ItensQuebraveis/ItemQuebravelComItem.gd" id="1_xe1ov"]
+[ext_resource type="PackedScene" uid="uid://dkvr36ht0b7j6" path="res://Prefabs/Objetos/ColetavelSubItem.tscn" id="2_3uqua"]
+[ext_resource type="Resource" uid="uid://cpr0ppw1okmga" path="res://ObjetosScriptaveis/Subitens/Adaga.tres" id="3_6hxym"]
+[ext_resource type="Texture2D" uid="uid://yswivfp58pkc" path="res://Placeholder/Legacy Collection/Assets/Gothicvania/Misc/fantasy weapons set/PNG/1.png" id="4_nq3x7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pauaf"]
+size = Vector2(86, 60)
+
+[node name="ItemQuebravelComSubItem" type="Area2D" unique_id=1391917746]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_xe1ov")
+item = ExtResource("2_3uqua")
+subItem = ExtResource("3_6hxym")
+metadata/_custom_type_script = "uid://3on3pbgjin4j"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1498476382]
+shape = SubResource("RectangleShape2D_pauaf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459328980]
+scale = Vector2(2.155, 2.155)
+texture = ExtResource("4_nq3x7")

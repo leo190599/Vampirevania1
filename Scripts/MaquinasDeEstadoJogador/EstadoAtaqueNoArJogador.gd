@@ -29,4 +29,5 @@ func terminar_ataque()->void:
 	pass
 func terminar_estado()->void:
 	jogador.limpar_lista_inimigos()
+	jogador.limpar_lista_de_itens_quebraveis()
 	
