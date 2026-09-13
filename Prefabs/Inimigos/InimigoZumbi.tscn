@@ -7,13 +7,16 @@
 size = Vector2(20, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdrlx"]
-size = Vector2(20, 31.2)
+size = Vector2(18.855, 29.04)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t718"]
+size = Vector2(17.3, 28.475)
 
 [node name="InimigoZumbi" type="CharacterBody2D" unique_id=1066377874]
 scale = Vector2(10, 10)
 collision_layer = 8
 script = ExtResource("1_od6s8")
-vida = 2
+vida = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1485628687]
 position = Vector2(0, 1.5)
@@ -23,11 +26,33 @@ shape = SubResource("RectangleShape2D_pauaf")
 texture_filter = 1
 texture = ExtResource("1_wsfdj")
 
-[node name="AreaDeRecebimentoDeDano" type="Area2D" parent="." unique_id=486269689]
+[node name="Hitbox" type="Area2D" parent="." unique_id=486269689]
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeRecebimentoDeDano" unique_id=247949107]
-position = Vector2(0, 1.4000016)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=247949107]
+position = Vector2(0, 1.5)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_wdrlx")
+
+[node name="AreaDeAtaque" type="Area2D" parent="." unique_id=1999566619]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeAtaque" unique_id=1625090460]
+position = Vector2(0, 1.3500011)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_8t718")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2101632840]
+rect = Rect2(-10, -14.099999, 20, 30.899998)
+
+[node name="TimerMudarDeDirecao" type="Timer" parent="." unique_id=770422583]
+wait_time = 2.0
+autostart = true
+
+[connection signal="area_entered" from="AreaDeAtaque" to="." method="_on_area_de_ataque_area_entered"]
+[connection signal="area_exited" from="AreaDeAtaque" to="." method="_on_area_de_ataque_area_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="TimerMudarDeDirecao" to="." method="_on_timer_mudar_de_direcao_timeout"]

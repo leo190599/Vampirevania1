@@ -2,15 +2,21 @@ extends CharacterBody2D
 class_name Jogador
 
 #Variaveis de design
+@export var vida:int=100
+@export var vida_max:int=100
+@export var mana:int=10
+@export var mana_max:int=10
+
+@export var dano:int=2
+
 @export var gravidade=75
 @export var vel_de_movimento=500
 @export var vel_de_pulo=-2000
 @export var subitem:SubitemObjetoScriptavel
-@export var mana:int=10
-@export var mana_max:int=10
-@export var dano:int=2
 
 #Variaveis de backend
+var estaEmEscadas:bool=false
+var podeLevarDano:bool=true
 var coletavelSubItemAtalho:PackedScene
 var olhando_para_direita:bool=true
 var vel=Vector2.ZERO
@@ -73,7 +79,15 @@ func trocar_subItem(novoSubItem:SubitemObjetoScriptavel):
 	subitem=novoSubItem
 
 func tomar_dano(dano:int):
-	print(dano)
+	if(podeLevarDano):
+		if(!estaEmEscadas):
+			_trocar_estado(EstadoTomandoDanoJogador.new())
+		podeLevarDano=false
+		$TimerInvencibilidade.start()
+		$TimerPiscarInvencibilidade.start()
+		vida-=dano
+		if(vida<=0):
+			morrer()
 	pass
 
 func atacar():
@@ -89,3 +103,17 @@ func atacar():
 	pass
 func limpar_lista_inimigos():
 	lista_de_inimigos_atacados_no_ataque_atual.clear()
+
+func morrer():
+	print("morreu")
+
+func _on_timer_invencibilidade_timeout() -> void:
+	podeLevarDano=true
+	$TimerPiscarInvencibilidade.stop()
+	$Sprite2D.visible=true
+	pass # Replace with function body.
+
+
+func _on_timer_piscar_invencibilidade_timeout() -> void:
+	$Sprite2D.visible=!$Sprite2D.visible
+	pass # Replace with function body.
