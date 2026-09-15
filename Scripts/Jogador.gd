@@ -15,6 +15,7 @@ class_name Jogador
 @export var subitem:SubitemObjetoScriptavel
 
 #Variaveis de backend
+var referenciaSprite:AnimatedSprite2D
 var estaEmEscadas:bool=false
 var podeLevarDano:bool=true
 var coletavelSubItemAtalho:PackedScene
@@ -28,6 +29,7 @@ var lista_de_itens_quebraveis_atacados:Array[ItemQuebravelBase]
 func _ready() -> void:
 	coletavelSubItemAtalho=load("res://Prefabs/Objetos/ColetavelSubItem.tscn")
 	area_deteccao_chao=$Area2D
+	referenciaSprite=$Sprite2D
 	_trocar_estado(EstadoNoArJogador.new())
 	pass # Replace with function body.
 
@@ -130,4 +132,10 @@ func _on_timer_invencibilidade_timeout() -> void:
 
 func _on_timer_piscar_invencibilidade_timeout() -> void:
 	$Sprite2D.visible=!$Sprite2D.visible
+	pass # Replace with function body.
+
+
+func _on_sprite_2d_animation_finished() -> void:
+	if(estado):
+		estado.evento_fim_da_animacao()
 	pass # Replace with function body.

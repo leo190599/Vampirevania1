@@ -4,6 +4,7 @@ class_name EstadoAbaixadoJogador
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
 	print("Abaixado")
+	jogador.referenciaSprite.play("Abaixado")
 
 func processar_fisico(delta:float)->void:
 	if(!Input.is_action_pressed("Baixo")):

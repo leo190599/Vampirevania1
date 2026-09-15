@@ -5,6 +5,7 @@ var atacando:bool=false
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
+	jogador.referenciaSprite.play("AtaqueNoAr")
 	iniciar_ataque()
 
 func processar_fisico(delta:float)->void:

@@ -1,6 +1,10 @@
 extends EstadoBaseJogador
 class_name EstadoAndandoJogador
 
+func iniciar_estado(parametrojogador:Jogador)->void:
+	super(parametrojogador)
+	jogador.referenciaSprite.play("Andando")
+
 func processar_fisico(delta:float)->void:
 	if (Input.is_action_just_pressed("Ataque")):
 		jogador._trocar_estado(EstadoAtaqueJogador.new())

@@ -3,6 +3,7 @@ class_name EstadoUsandoSubItemNoArJogador
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
+	jogador.referenciaSprite.play("UsandoSubItemNoAr")
 	iniciar_uso_subItem()
 
 func iniciar_uso_subItem():

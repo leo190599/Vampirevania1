@@ -3,6 +3,7 @@ class_name EstadoIdleJogador
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
+	jogador.referenciaSprite.play("Idle")
 	jogador.vel.x=0
 	jogador.velocity=jogador.vel
 

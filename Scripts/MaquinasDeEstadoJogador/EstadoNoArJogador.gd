@@ -1,6 +1,10 @@
 extends EstadoBaseJogador
 class_name EstadoNoArJogador
 
+func iniciar_estado(parametrojogador:Jogador)->void:
+	super(parametrojogador)
+	jogador.referenciaSprite.play("NoAr")
+
 func processar_fisico(delta:float)->void:
 	if(jogador):
 		jogador.vel.y+=jogador.gravidade

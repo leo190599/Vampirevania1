@@ -5,12 +5,15 @@ var atacando=false
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
+	jogador.referenciaSprite.play("Atacando")
 	jogador.velocity=Vector2.ZERO
 	iniciar_ataque()
 
 func processar_fisico(delta:float)->void:
 	if(atacando):
 		jogador.atacar()
+
+func evento_fim_da_animacao()->void:
 	terminar_ataque()
 
 func terminar_estado()->void:

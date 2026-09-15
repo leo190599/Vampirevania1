@@ -13,3 +13,5 @@ func processar_fisico(delta:float)->void:
 	pass
 func terminar_estado()->void:
 	pass
+func evento_fim_da_animacao()->void:
+	pass

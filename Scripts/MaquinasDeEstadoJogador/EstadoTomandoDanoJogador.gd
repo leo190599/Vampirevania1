@@ -3,6 +3,7 @@ class_name EstadoTomandoDanoJogador
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
+	jogador.referenciaSprite.play("TomandoDano")
 	if(jogador.olhando_para_direita):
 		jogador.vel.x=-jogador.vel_de_movimento
 	else :
