@@ -8,6 +8,8 @@ func iniciar_estado(parametrojogador:Jogador)->void:
 	jogador.velocity=jogador.vel
 
 func processar_fisico(delta:float)->void:
+	if(!jogador.area_deteccao_chao.has_overlapping_bodies()):
+		jogador._trocar_estado(EstadoNoArJogador.new())
 	if(Input.is_action_pressed("Direita")||Input.is_action_pressed("Esquerda")):
 		jogador._trocar_estado(EstadoAndandoJogador.new())
 	if(Input.is_action_just_pressed("pulo")):

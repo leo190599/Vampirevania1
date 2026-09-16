@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bm2ag0dnclrw4" path="res://Sprites/Dracula/DraculaAtacando.png" id="4_mdgyi"]
 [ext_resource type="Texture2D" uid="uid://ces2svofvyf0m" path="res://Sprites/Dracula/DraculaAtacandoAbaixado.png" id="5_xnkhj"]
 [ext_resource type="Texture2D" uid="uid://8y4gwxt3pbt" path="res://Sprites/Dracula/DraculaTomandoDano.png" id="7_ca5uv"]
+[ext_resource type="Texture2D" uid="uid://dpmt5760vq7av" path="res://Sprites/Dracula/DraculaNoAr.png" id="7_j2fp8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pauaf"]
 size = Vector2(33.34, 124)
@@ -34,10 +35,6 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_upjy5"]
 atlas = ExtResource("2_uk2x4")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ep8kf"]
-atlas = ExtResource("3_j2fp8")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jlbfa"]
@@ -104,7 +101,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ep8kf")
+"texture": ExtResource("7_j2fp8")
 }],
 "loop": 1,
 "name": &"NoAr",
@@ -136,13 +133,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8t718"]
-size = Vector2(29.955, 14)
+size = Vector2(33.1, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdrlx"]
 size = Vector2(130, 130)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1y1pt"]
 size = Vector2(30.845, 116.405)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdh07"]
+size = Vector2(33.045, 6)
 
 [node name="Jogador" type="CharacterBody2D" unique_id=526484417]
 collision_layer = 2
@@ -155,13 +155,13 @@ shape = SubResource("RectangleShape2D_pauaf")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=273284163]
 scale = Vector2(3.93, 3.93)
 sprite_frames = SubResource("SpriteFrames_jlbfa")
-animation = &"UsandoSubItem"
+animation = &"NoAr"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=70803438]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=132673116]
-position = Vector2(0, 66)
+position = Vector2(0, 63.5)
 shape = SubResource("RectangleShape2D_8t718")
 
 [node name="Camera2D" type="Camera2D" parent="Area2D" unique_id=2118923829]
@@ -169,7 +169,7 @@ limit_left = 0
 limit_bottom = 1080
 
 [node name="AreaDeAtaque" type="Area2D" parent="." unique_id=891549444]
-position = Vector2(208, 0)
+position = Vector2(160.315, 0)
 scale = Vector2(2.195713, 0.35264763)
 collision_layer = 0
 collision_mask = 24
@@ -181,7 +181,7 @@ shape = SubResource("RectangleShape2D_wdrlx")
 texture = ExtResource("1_d7j23")
 
 [node name="PontoInstanciaAntigoSubItem" type="Node2D" parent="." unique_id=174216465]
-position = Vector2(-180, -93)
+position = Vector2(-94, -50)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1753432549]
 collision_layer = 2
@@ -195,6 +195,13 @@ one_shot = true
 
 [node name="TimerPiscarInvencibilidade" type="Timer" parent="." unique_id=1751732333]
 wait_time = 0.15
+
+[node name="AreaDetecaoCimaPulo" type="Area2D" parent="." unique_id=40798459]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetecaoCimaPulo" unique_id=1104733872]
+position = Vector2(0, -59)
+shape = SubResource("RectangleShape2D_mdh07")
 
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
 [connection signal="timeout" from="TimerInvencibilidade" to="." method="_on_timer_invencibilidade_timeout"]

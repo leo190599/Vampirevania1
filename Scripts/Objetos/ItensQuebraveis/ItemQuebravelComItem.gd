@@ -4,6 +4,9 @@ class_name ItemQuebravelComItem
 @export var item:PackedScene
 @export var subItem:SubitemObjetoScriptavel
 
+func _ready() -> void:
+	$Sprite2D.play("default")
+
 func quebrar()->void:
 	if(item):
 		var novoItem:Node2D =item.instantiate()

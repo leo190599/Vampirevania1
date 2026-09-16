@@ -15,6 +15,7 @@ class_name Jogador
 @export var subitem:SubitemObjetoScriptavel
 
 #Variaveis de backend
+var caindo:bool=false
 var referenciaSprite:AnimatedSprite2D
 var estaEmEscadas:bool=false
 var podeLevarDano:bool=true
@@ -23,11 +24,13 @@ var olhando_para_direita:bool=true
 var vel=Vector2.ZERO
 var estado:EstadoBaseJogador
 var area_deteccao_chao:Area2D
+var area_deteccao_pulo:Area2D
 var lista_de_inimigos_atacados_no_ataque_atual:Array[InimigoBase]
 var lista_de_itens_quebraveis_atacados:Array[ItemQuebravelBase]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	coletavelSubItemAtalho=load("res://Prefabs/Objetos/ColetavelSubItem.tscn")
+	area_deteccao_pulo=$AreaDetecaoCimaPulo
 	area_deteccao_chao=$Area2D
 	referenciaSprite=$Sprite2D
 	_trocar_estado(EstadoNoArJogador.new())

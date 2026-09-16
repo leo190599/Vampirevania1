@@ -9,7 +9,13 @@ func processar_fisico(delta:float)->void:
 	if(jogador):
 		jogador.vel.y+=jogador.gravidade
 		jogador.velocity=jogador.vel
+		if(jogador.caindo):
+			jogador.velddd.x=0
+			jogador.velocity=jogador.vel
 		jogador.move_and_slide()
+		if(jogador.area_deteccao_pulo.has_overlapping_bodies()):
+			jogador.vel.y=0
+			jogador.velocity=jogador.vel
 		if(Input.is_action_just_pressed("Ataque")):
 			jogador._trocar_estado(EstadoAtaqueNoArJogador.new())
 		if(Input.is_action_just_pressed("SubItem")):
@@ -22,3 +28,5 @@ func processar_fisico(delta:float)->void:
 				jogador._trocar_estado(EstadoAndandoJogador.new())
 			else:
 				jogador._trocar_estado(EstadoIdleJogador.new())
+func terminar_estado()->void:
+	jogador.caindo=false

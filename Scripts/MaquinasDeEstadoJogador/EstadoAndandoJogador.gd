@@ -6,6 +6,11 @@ func iniciar_estado(parametrojogador:Jogador)->void:
 	jogador.referenciaSprite.play("Andando")
 
 func processar_fisico(delta:float)->void:
+	if(!jogador.area_deteccao_chao.has_overlapping_bodies()):
+		jogador.vel.x=0
+		jogador.velocity=jogador.vel
+		jogador.caindo=true
+		jogador._trocar_estado(EstadoNoArJogador.new())
 	if (Input.is_action_just_pressed("Ataque")):
 		jogador._trocar_estado(EstadoAtaqueJogador.new())
 	elif (Input.is_action_just_pressed("SubItem")):
