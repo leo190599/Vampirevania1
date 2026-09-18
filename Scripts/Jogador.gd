@@ -16,6 +16,7 @@ class_name Jogador
 
 #Variaveis de backend
 var caindo:bool=false
+var referenciaSpriteAtaque:AnimatedSprite2D
 var referenciaSprite:AnimatedSprite2D
 var estaEmEscadas:bool=false
 var podeLevarDano:bool=true
@@ -33,6 +34,8 @@ func _ready() -> void:
 	area_deteccao_pulo=$AreaDetecaoCimaPulo
 	area_deteccao_chao=$Area2D
 	referenciaSprite=$Sprite2D
+	referenciaSpriteAtaque=$AreaDeAtaque/Sprite2D
+	referenciaSpriteAtaque.visible=false
 	_trocar_estado(EstadoNoArJogador.new())
 	pass # Replace with function body.
 

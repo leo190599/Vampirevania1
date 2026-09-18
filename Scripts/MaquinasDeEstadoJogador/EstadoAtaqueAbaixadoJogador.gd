@@ -5,6 +5,9 @@ var atacando:bool
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
+	jogador.referenciaSpriteAtaque.visible=true
+	jogador.referenciaSpriteAtaque.play("Ataque")
+	
 	jogador.referenciaSprite.play("AtacandoAbaixado")
 	iniciar_ataque()
 	
@@ -20,6 +23,7 @@ func evento_fim_da_animacao():
 			jogador._trocar_estado(EstadoIdleJogador.new())
 
 func terminar_estado()->void:
+	jogador.referenciaSpriteAtaque.visible=false
 	jogador.limpar_lista_inimigos()
 	jogador.limpar_lista_de_itens_quebraveis()
 

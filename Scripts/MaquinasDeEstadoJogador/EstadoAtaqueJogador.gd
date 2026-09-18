@@ -5,6 +5,9 @@ var atacando=false
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
+	jogador.referenciaSpriteAtaque.visible=true
+	jogador.referenciaSpriteAtaque.play("Ataque")
+	
 	jogador.referenciaSprite.play("Atacando")
 	jogador.velocity=Vector2.ZERO
 	iniciar_ataque()
@@ -18,6 +21,7 @@ func evento_fim_da_animacao()->void:
 
 func terminar_estado()->void:
 	super()
+	jogador.referenciaSpriteAtaque.visible=false
 	jogador.limpar_lista_inimigos()
 	jogador.limpar_lista_de_itens_quebraveis()
 

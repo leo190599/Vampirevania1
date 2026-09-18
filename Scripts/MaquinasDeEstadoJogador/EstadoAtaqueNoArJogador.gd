@@ -5,6 +5,10 @@ var atacando:bool=false
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
+	
+	jogador.referenciaSpriteAtaque.visible=true
+	jogador.referenciaSpriteAtaque.play("Ataque")
+	
 	jogador.referenciaSprite.play("AtaqueNoAr")
 	iniciar_ataque()
 
@@ -32,6 +36,7 @@ func terminar_ataque()->void:
 	atacando=false
 	pass
 func terminar_estado()->void:
+	jogador.referenciaSpriteAtaque.visible=false
 	jogador.limpar_lista_inimigos()
 	jogador.limpar_lista_de_itens_quebraveis()
 	

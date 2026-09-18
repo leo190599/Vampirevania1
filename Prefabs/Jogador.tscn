@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://d1khbxk8kke1b"]
 
-[ext_resource type="Texture2D" uid="uid://cxdbdhdfqo13x" path="res://icon.svg" id="1_d7j23"]
 [ext_resource type="Script" uid="uid://dgqma1y3sw04o" path="res://Scripts/Jogador.gd" id="1_fslql"]
 [ext_resource type="Texture2D" uid="uid://tprcdx2lg6e0" path="res://Sprites/Dracula/DraculaAbaixado.png" id="2_ep8kf"]
 [ext_resource type="Texture2D" uid="uid://gpwvxsxq15le" path="res://Sprites/Dracula/DraculaIdle-Sheet.png" id="2_uk2x4"]
@@ -9,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ces2svofvyf0m" path="res://Sprites/Dracula/DraculaAtacandoAbaixado.png" id="5_xnkhj"]
 [ext_resource type="Texture2D" uid="uid://8y4gwxt3pbt" path="res://Sprites/Dracula/DraculaTomandoDano.png" id="7_ca5uv"]
 [ext_resource type="Texture2D" uid="uid://dpmt5760vq7av" path="res://Sprites/Dracula/DraculaNoAr.png" id="7_j2fp8"]
+[ext_resource type="Texture2D" uid="uid://dxf7qp1cw105f" path="res://Sprites/Dracula/Ataques/AtaqyeSprite-Sheet.png" id="9_j2fp8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pauaf"]
 size = Vector2(33.34, 124)
@@ -138,6 +138,28 @@ size = Vector2(33.1, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdrlx"]
 size = Vector2(130, 130)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdgyi"]
+atlas = ExtResource("9_j2fp8")
+region = Rect2(64, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2fp8"]
+atlas = ExtResource("9_j2fp8")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pauaf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdgyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2fp8")
+}],
+"loop": 1,
+"name": &"Ataque",
+"speed": 6.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1y1pt"]
 size = Vector2(30.845, 116.405)
 
@@ -169,7 +191,7 @@ limit_left = 0
 limit_bottom = 1080
 
 [node name="AreaDeAtaque" type="Area2D" parent="." unique_id=891549444]
-position = Vector2(160.315, 0)
+position = Vector2(134, 1.9999999)
 scale = Vector2(2.195713, 0.35264763)
 collision_layer = 0
 collision_mask = 24
@@ -177,8 +199,11 @@ collision_mask = 24
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeAtaque" unique_id=17881322]
 shape = SubResource("RectangleShape2D_wdrlx")
 
-[node name="Sprite2D" type="Sprite2D" parent="AreaDeAtaque" unique_id=494720796]
-texture = ExtResource("1_d7j23")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="AreaDeAtaque" unique_id=616506196]
+modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
+scale = Vector2(2.02, 8.065)
+sprite_frames = SubResource("SpriteFrames_pauaf")
+animation = &"Ataque"
 
 [node name="PontoInstanciaAntigoSubItem" type="Node2D" parent="." unique_id=174216465]
 position = Vector2(-94, -50)
