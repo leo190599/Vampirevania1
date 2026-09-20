@@ -8,6 +8,19 @@ func iniciar_estado(parametrojogador:Jogador)->void:
 	jogador.velocity=jogador.vel
 
 func processar_fisico(delta:float)->void:
+	if(jogador.area_deteccao_degraus.has_overlapping_areas()):
+		var degrau:Degrau=jogador.get_degrau()
+		if(degrau):
+			if(degrau.sobe && Input.is_action_pressed("Cima")):
+				var novoEstadoNaEscada:EstadoNaEscadaJogador=EstadoNaEscadaJogador.new()
+				novoEstadoNaEscada.degrau=degrau
+				jogador._trocar_estado(novoEstadoNaEscada)
+				return
+			if(!degrau.sobe && Input.is_action_pressed("Baixo")):
+				var novoEstadoNaEscada:EstadoNaEscadaJogador=EstadoNaEscadaJogador.new()
+				novoEstadoNaEscada.degrau=degrau
+				jogador._trocar_estado(novoEstadoNaEscada)
+				return
 	if(!jogador.area_deteccao_chao.has_overlapping_bodies()):
 		jogador._trocar_estado(EstadoNoArJogador.new())
 	if(Input.is_action_pressed("Direita")||Input.is_action_pressed("Esquerda")):

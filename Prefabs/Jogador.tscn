@@ -166,6 +166,9 @@ size = Vector2(30.845, 116.405)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdh07"]
 size = Vector2(33.045, 6)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1met"]
+size = Vector2(33.615, 9.02)
+
 [node name="Jogador" type="CharacterBody2D" unique_id=526484417]
 collision_layer = 2
 script = ExtResource("1_fslql")
@@ -227,6 +230,15 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetecaoCimaPulo" unique_id=1104733872]
 position = Vector2(0, -59)
 shape = SubResource("RectangleShape2D_mdh07")
+
+[node name="AreaDetecaoEscada" type="Area2D" parent="." unique_id=77436363]
+position = Vector2(0, 64)
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetecaoEscada" unique_id=2059888836]
+shape = SubResource("RectangleShape2D_k1met")
+debug_color = Color(0.9999998, 0.00996061, 0.06236475, 0.41960785)
 
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
 [connection signal="timeout" from="TimerInvencibilidade" to="." method="_on_timer_invencibilidade_timeout"]

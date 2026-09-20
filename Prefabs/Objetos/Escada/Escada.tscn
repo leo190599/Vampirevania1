@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://d0me7nslgjo8c"]
+
+[ext_resource type="Script" uid="uid://clh7v6wm0h60w" path="res://Scripts/Objetos/Escada/Escada.gd" id="1_lfm21"]
+[ext_resource type="Script" uid="uid://cs1t1h8tpyn7o" path="res://Scripts/Objetos/Escada/Degrau.gd" id="2_8acjm"]
+[ext_resource type="Texture2D" uid="uid://c76lxsuk5n00p" path="res://Placeholder/Legacy Collection/Assets/Misc/colorful-tileset/PNG/layers/cloud.png" id="2_ldrpf"]
+[ext_resource type="Texture2D" uid="uid://cxdbdhdfqo13x" path="res://icon.svg" id="3_8acjm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pauaf"]
+size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t718"]
+size = Vector2(60, 60)
+
+[node name="Escada" type="Node2D" unique_id=632753062]
+script = ExtResource("1_lfm21")
+
+[node name="DegrauEsquerdo" type="Area2D" parent="." unique_id=47655911]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("2_8acjm")
+sobe = true
+degrauEsquerdo = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DegrauEsquerdo" unique_id=153122575]
+shape = SubResource("RectangleShape2D_pauaf")
+debug_color = Color(0.99999994, 0.015221567, 0.029761938, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="DegrauEsquerdo" unique_id=1322476115]
+texture = ExtResource("2_ldrpf")
+
+[node name="DegrauDireito" type="Area2D" parent="." unique_id=381627831]
+position = Vector2(300, -300)
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("2_8acjm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DegrauDireito" unique_id=1390329542]
+shape = SubResource("RectangleShape2D_8t718")
+debug_color = Color(0.74681205, 0.20788783, 1, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="DegrauDireito" unique_id=1743407508]
+scale = Vector2(0.5551948, 0.5551948)
+texture = ExtResource("3_8acjm")

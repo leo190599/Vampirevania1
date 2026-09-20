@@ -15,6 +15,7 @@ class_name Jogador
 @export var subitem:SubitemObjetoScriptavel
 
 #Variaveis de backend
+var area_deteccao_degraus:Area2D
 var caindo:bool=false
 var referenciaSpriteAtaque:AnimatedSprite2D
 var referenciaSprite:AnimatedSprite2D
@@ -31,6 +32,7 @@ var lista_de_itens_quebraveis_atacados:Array[ItemQuebravelBase]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	coletavelSubItemAtalho=load("res://Prefabs/Objetos/ColetavelSubItem.tscn")
+	area_deteccao_degraus=$AreaDetecaoEscada
 	area_deteccao_pulo=$AreaDetecaoCimaPulo
 	area_deteccao_chao=$Area2D
 	referenciaSprite=$Sprite2D
@@ -129,6 +131,13 @@ func limpar_lista_de_itens_quebraveis():
 func morrer():
 	print("morreu")
 
+func get_degrau()->Degrau:
+	if(area_deteccao_degraus.has_overlapping_areas()):
+		var degrau:Degrau=area_deteccao_degraus.get_overlapping_areas().get(0) as Degrau
+		if(degrau):
+			return degrau
+	return null
+
 func _on_timer_invencibilidade_timeout() -> void:
 	podeLevarDano=true
 	$TimerPiscarInvencibilidade.stop()
@@ -139,7 +148,6 @@ func _on_timer_invencibilidade_timeout() -> void:
 func _on_timer_piscar_invencibilidade_timeout() -> void:
 	$Sprite2D.visible=!$Sprite2D.visible
 	pass # Replace with function body.
-
 
 func _on_sprite_2d_animation_finished() -> void:
 	if(estado):
