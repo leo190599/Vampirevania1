@@ -8,6 +8,7 @@ class_name InimigoZumbi
 var jogador:Jogador=null
 
 func _ready() -> void:
+	$Sprite2D.play("default")
 	$TimerMudarDeDirecao.paused=true
 
 func morrer():

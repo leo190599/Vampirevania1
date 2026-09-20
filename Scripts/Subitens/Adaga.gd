@@ -5,6 +5,7 @@ class_name Adaga
 @export var vel:Vector2
 
 func _ready() -> void:
+	$Sprite2D.play("default")
 	if(!olhando_para_direita):
 		$Sprite2D.flip_h=true
 

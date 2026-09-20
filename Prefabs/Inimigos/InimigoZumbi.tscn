@@ -1,10 +1,32 @@
 [gd_scene format=3 uid="uid://c4t6y6ij26nl6"]
 
 [ext_resource type="Script" uid="uid://c3ol4tlyu8id1" path="res://Scripts/Inimigos/InimigoZumbi.gd" id="1_od6s8"]
-[ext_resource type="Texture2D" uid="uid://dh1l107jvl3dm" path="res://Placeholder/Legacy Collection/Assets/Gothicvania/Characters/meerman/Sprites/meerman1.png" id="1_wsfdj"]
+[ext_resource type="Texture2D" uid="uid://8tte4s61oyip" path="res://Sprites/Zumbi/Zumbi-Sheet.png" id="2_od6s8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pauaf"]
 size = Vector2(20, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwtf4"]
+atlas = ExtResource("2_od6s8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymdhr"]
+atlas = ExtResource("2_od6s8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pauaf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwtf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymdhr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdrlx"]
 size = Vector2(18.855, 29.04)
@@ -22,9 +44,12 @@ vida = 1
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_pauaf")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1197791091]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1954517011]
 texture_filter = 1
-texture = ExtResource("1_wsfdj")
+position = Vector2(0, 0.43)
+sprite_frames = SubResource("SpriteFrames_pauaf")
+frame_progress = 0.74592215
+flip_h = true
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=486269689]
 collision_layer = 8

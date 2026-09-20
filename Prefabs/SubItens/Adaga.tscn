@@ -1,10 +1,32 @@
 [gd_scene format=3 uid="uid://b3hcffhvqjlv1"]
 
 [ext_resource type="Script" uid="uid://bq8fco7uigqu7" path="res://Scripts/Subitens/Adaga.gd" id="1_g7xrs"]
-[ext_resource type="Texture2D" uid="uid://dntu76bxx3kfk" path="res://Placeholder/Sprites/Adaga.png" id="2_vp6a6"]
+[ext_resource type="Texture2D" uid="uid://do72y8v86wf10" path="res://Sprites/SubItens/Morcego-Sheet.png" id="2_vp6a6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pauaf"]
 size = Vector2(80, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhelt"]
+atlas = ExtResource("2_vp6a6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjlwd"]
+atlas = ExtResource("2_vp6a6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pauaf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhelt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjlwd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Adaga" type="Area2D" unique_id=844624822]
 collision_layer = 4
@@ -16,12 +38,13 @@ vel = Vector2(20, 0)
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_pauaf")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=704604808]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=979851891]
 texture_filter = 1
 scale = Vector2(4.916677, 4.916677)
-texture = ExtResource("2_vp6a6")
+sprite_frames = SubResource("SpriteFrames_pauaf")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=23149669]
+rect = Rect2(-43, -10, 85.5, 26.5)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
