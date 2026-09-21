@@ -167,22 +167,24 @@ size = Vector2(30.845, 116.405)
 size = Vector2(33.045, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1met"]
-size = Vector2(33.615, 9.02)
+size = Vector2(27.525, 4.14)
 
 [node name="Jogador" type="CharacterBody2D" unique_id=526484417]
 collision_layer = 2
 script = ExtResource("1_fslql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=56010038]
-position = Vector2(0, 3)
+position = Vector2(0, -61.119995)
 shape = SubResource("RectangleShape2D_pauaf")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=273284163]
+position = Vector2(0, -64.11999)
 scale = Vector2(3.93, 3.93)
 sprite_frames = SubResource("SpriteFrames_jlbfa")
 animation = &"NoAr"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=70803438]
+position = Vector2(0, -64.119995)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=132673116]
@@ -194,7 +196,7 @@ limit_left = 0
 limit_bottom = 1080
 
 [node name="AreaDeAtaque" type="Area2D" parent="." unique_id=891549444]
-position = Vector2(134, 1.9999999)
+position = Vector2(134, -62.119987)
 scale = Vector2(2.195713, 0.35264763)
 collision_layer = 0
 collision_mask = 24
@@ -209,9 +211,10 @@ sprite_frames = SubResource("SpriteFrames_pauaf")
 animation = &"Ataque"
 
 [node name="PontoInstanciaAntigoSubItem" type="Node2D" parent="." unique_id=174216465]
-position = Vector2(-94, -50)
+position = Vector2(-94, -114.119995)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1753432549]
+position = Vector2(0, -64.119995)
 collision_layer = 2
 collision_mask = 0
 
@@ -225,6 +228,7 @@ one_shot = true
 wait_time = 0.15
 
 [node name="AreaDetecaoCimaPulo" type="Area2D" parent="." unique_id=40798459]
+position = Vector2(0, -64.119995)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetecaoCimaPulo" unique_id=1104733872]
@@ -232,11 +236,12 @@ position = Vector2(0, -59)
 shape = SubResource("RectangleShape2D_mdh07")
 
 [node name="AreaDetecaoEscada" type="Area2D" parent="." unique_id=77436363]
-position = Vector2(0, 64)
+position = Vector2(0, -1)
 collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetecaoEscada" unique_id=2059888836]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_k1met")
 debug_color = Color(0.9999998, 0.00996061, 0.06236475, 0.41960785)
 

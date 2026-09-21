@@ -9,10 +9,10 @@ func processar_fisico(delta:float)->void:
 	if(jogador):
 		jogador.vel.y+=jogador.gravidade
 		jogador.velocity=jogador.vel
+		jogador.move_and_slide()
 		if(jogador.caindo):
 			jogador.vel.x=0
 			jogador.velocity=jogador.vel
-		jogador.move_and_slide()
 		if(jogador.area_deteccao_pulo.has_overlapping_bodies()):
 			jogador.vel.y=0
 			jogador.velocity=jogador.vel

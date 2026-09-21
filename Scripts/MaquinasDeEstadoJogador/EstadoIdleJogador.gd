@@ -6,6 +6,8 @@ func iniciar_estado(parametrojogador:Jogador)->void:
 	jogador.referenciaSprite.play("Idle")
 	jogador.vel.x=0
 	jogador.velocity=jogador.vel
+	jogador.set_collision_mask_value(1,true)
+	jogador.move_and_collide(Vector2.ZERO)
 
 func processar_fisico(delta:float)->void:
 	if(jogador.area_deteccao_degraus.has_overlapping_areas()):
