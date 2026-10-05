@@ -29,6 +29,22 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("3_j2fp8")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnkhj"]
+atlas = ExtResource("3_j2fp8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca5uv"]
+atlas = ExtResource("3_j2fp8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycqjh"]
+atlas = ExtResource("3_j2fp8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rof83"]
+atlas = ExtResource("3_j2fp8")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_o0b3a"]
 atlas = ExtResource("2_uk2x4")
 region = Rect2(0, 0, 32, 32)
@@ -36,6 +52,22 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_upjy5"]
 atlas = ExtResource("2_uk2x4")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eejcx"]
+atlas = ExtResource("3_j2fp8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vplwg"]
+atlas = ExtResource("3_j2fp8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f72uh"]
+atlas = ExtResource("3_j2fp8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ryj1"]
+atlas = ExtResource("3_j2fp8")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jlbfa"]
 animations = [{
@@ -84,9 +116,34 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_mdgyi")
 }],
+"loop": 0,
+"name": &"AtacandoNaEscada",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mdgyi")
+}],
 "loop": 1,
 "name": &"AtaqueNoAr",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnkhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca5uv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycqjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rof83")
+}],
+"loop": 1,
+"name": &"DescendoEscada",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -109,6 +166,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_eejcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vplwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f72uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ryj1")
+}],
+"loop": 1,
+"name": &"SubindoEscada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("7_ca5uv")
 }],
 "loop": 1,
@@ -117,10 +191,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("7_ca5uv")
+}],
+"loop": 1,
+"name": &"TomandoDanoNaEscada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("4_mdgyi")
 }],
 "loop": 0,
 "name": &"UsandoSubItem",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mdgyi")
+}],
+"loop": 0,
+"name": &"UsandoSubItemNaEscada",
 "speed": 2.0
 }, {
 "frames": [{
@@ -181,7 +271,7 @@ shape = SubResource("RectangleShape2D_pauaf")
 position = Vector2(0, -64.11999)
 scale = Vector2(3.93, 3.93)
 sprite_frames = SubResource("SpriteFrames_jlbfa")
-animation = &"NoAr"
+animation = &"UsandoSubItemNaEscada"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=70803438]
 position = Vector2(0, -64.119995)
@@ -244,6 +334,9 @@ collision_mask = 32
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_k1met")
 debug_color = Color(0.9999998, 0.00996061, 0.06236475, 0.41960785)
+
+[node name="PontoSpawn SubItem" type="Node2D" parent="." unique_id=1481549341]
+position = Vector2(0, -63)
 
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
 [connection signal="timeout" from="TimerInvencibilidade" to="." method="_on_timer_invencibilidade_timeout"]

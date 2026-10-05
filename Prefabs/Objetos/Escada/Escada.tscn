@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://cs1t1h8tpyn7o" path="res://Scripts/Objetos/Escada/Degrau.gd" id="2_8acjm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pauaf"]
-size = Vector2(10, 10)
+size = Vector2(60, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8t718"]
-size = Vector2(10, 10)
+size = Vector2(60, 10)
 
 [node name="Escada" type="Node2D" unique_id=632753062]
 script = ExtResource("1_lfm21")

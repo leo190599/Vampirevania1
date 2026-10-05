@@ -62,11 +62,13 @@ func flipar_jogador(direita:bool)->void:
 		$Sprite2D.flip_h=false
 		$AreaDeAtaque.position.x=abs($AreaDeAtaque.position.x)
 		$AreaDeAtaque/Sprite2D.flip_h=false
+		olhando_para_direita=true
 		$PontoInstanciaAntigoSubItem.position.x=-abs($PontoInstanciaAntigoSubItem.position.x)
 	else:
 		$Sprite2D.flip_h=true
 		$AreaDeAtaque.position.x=-abs($AreaDeAtaque.position.x)
 		$AreaDeAtaque/Sprite2D.flip_h=true
+		olhando_para_direita=false
 		$PontoInstanciaAntigoSubItem.position.x=abs($PontoInstanciaAntigoSubItem.position.x)
 	pass
 func usar_sub_item()->void:
@@ -76,7 +78,7 @@ func usar_sub_item()->void:
 			var novo_subItem:SubitemBase=subitem.subitem.instantiate()
 			novo_subItem.olhando_para_direita=olhando_para_direita
 			novo_subItem.jogador=self
-			novo_subItem.position=global_position
+			novo_subItem.position=$"PontoSpawn SubItem".global_position
 			get_tree().current_scene.add_child(novo_subItem)
 		print(mana)
 		pass
@@ -93,6 +95,13 @@ func tomar_dano(dano:int):
 	if(podeLevarDano):
 		if(!estaEmEscadas):
 			_trocar_estado(EstadoTomandoDanoJogador.new())
+		else:
+			if("degrau" in estado):
+				var novoEstado:EstadoTomandoDanoNaEscadaJogador=EstadoTomandoDanoNaEscadaJogador.new()
+				novoEstado.degrau=estado.degrau
+				novoEstado.escada=estado.escada
+				novoEstado.outroDegrau=estado.outroDegrau
+				_trocar_estado(novoEstado)
 		podeLevarDano=false
 		$TimerInvencibilidade.start()
 		$TimerPiscarInvencibilidade.start()

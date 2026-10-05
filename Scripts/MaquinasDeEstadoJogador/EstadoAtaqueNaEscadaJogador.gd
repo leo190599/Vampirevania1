@@ -1,14 +1,17 @@
 extends EstadoBaseJogador
-class_name EstadoAtaqueJogador
+class_name EstadoAtaqueNaEscadaJogador
 
 var atacando=false
+var degrau:Degrau
+var escada:Escada
+var outroDegrau:Degrau
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
 	jogador.referenciaSpriteAtaque.visible=true
 	jogador.referenciaSpriteAtaque.play("Ataque")
 	
-	jogador.referenciaSprite.play("Atacando")
+	jogador.referenciaSprite.play("AtacandoNaEscada")
 	jogador.velocity=Vector2.ZERO
 	iniciar_ataque()
 
@@ -29,7 +32,8 @@ func terminar_estado()->void:
 func iniciar_ataque()->void:
 	atacando=true
 func terminar_ataque()->void:
-	if(Input.is_action_pressed("Direita")||Input.is_action_pressed("Esquerda")):
-		jogador._trocar_estado(EstadoAndandoJogador.new())
-	else:
-		jogador._trocar_estado(EstadoIdleJogador.new())
+	var novoEstado:EstadoNaEscadaJogador=EstadoNaEscadaJogador.new()
+	novoEstado.degrau=degrau
+	novoEstado.escada=escada
+	novoEstado.outroDegrau=outroDegrau
+	jogador._trocar_estado(novoEstado)
