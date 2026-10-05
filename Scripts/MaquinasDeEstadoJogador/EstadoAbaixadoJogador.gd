@@ -3,7 +3,7 @@ class_name EstadoAbaixadoJogador
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
-	print("Abaixado")
+	jogador.ativar_hitbox_abaixado()
 	jogador.referenciaSprite.play("Abaixado")
 
 func processar_fisico(delta:float)->void:

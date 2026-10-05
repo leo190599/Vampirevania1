@@ -3,6 +3,7 @@ class_name EstadoUsandoSubItemJogador
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
+	jogador.ativar_hitbox_em_pe()
 	jogador.referenciaSprite.play("UsandoSubItem")
 	jogador.vel=Vector2.ZERO
 	jogador.velocity=Vector2.ZERO

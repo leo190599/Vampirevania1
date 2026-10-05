@@ -15,6 +15,7 @@ class_name Jogador
 @export var subitem:SubitemObjetoScriptavel
 
 #Variaveis de backend
+var cena:Cena
 var area_deteccao_degraus:Area2D
 var caindo:bool=false
 var referenciaSpriteAtaque:AnimatedSprite2D
@@ -32,6 +33,10 @@ var lista_de_itens_quebraveis_atacados:Array[ItemQuebravelBase]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	coletavelSubItemAtalho=load("res://Prefabs/Objetos/ColetavelSubItem.tscn")
+	cena=get_tree().current_scene as Cena
+	if(!cena.interface):
+		push_error("interface indisponivel, checar ordem dos nodes")
+	cena.interface.setar_porcentagem_barra_de_vida((vida/vida_max)*100)
 	area_deteccao_degraus=$AreaDetecaoEscada
 	area_deteccao_pulo=$AreaDetecaoCimaPulo
 	area_deteccao_chao=$Area2D
@@ -80,7 +85,6 @@ func usar_sub_item()->void:
 			novo_subItem.jogador=self
 			novo_subItem.position=$"PontoSpawn SubItem".global_position
 			get_tree().current_scene.add_child(novo_subItem)
-		print(mana)
 		pass
 
 func trocar_subItem(novoSubItem:SubitemObjetoScriptavel):
@@ -106,6 +110,7 @@ func tomar_dano(dano:int):
 		$TimerInvencibilidade.start()
 		$TimerPiscarInvencibilidade.start()
 		vida-=dano
+		cena.interface.setar_porcentagem_barra_de_vida((float (vida)/float(vida_max))*100)
 		if(vida<=0):
 			morrer()
 	pass
@@ -146,6 +151,13 @@ func get_degrau()->Degrau:
 		if(degrau):
 			return degrau
 	return null
+
+func ativar_hitbox_abaixado():
+	$Hitbox/ColisaoAbaixado.set_deferred("disabled",false)
+	$Hitbox/ColisaoEmPe.set_deferred("disabled",true)
+func ativar_hitbox_em_pe():
+	$Hitbox/ColisaoAbaixado.set_deferred("disabled",true)
+	$Hitbox/ColisaoEmPe.set_deferred("disabled",false)
 
 func _on_timer_invencibilidade_timeout() -> void:
 	podeLevarDano=true

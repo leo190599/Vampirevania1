@@ -3,6 +3,7 @@ class_name EstadoNoArJogador
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
+	jogador.ativar_hitbox_em_pe()
 	jogador.referenciaSprite.play("NoAr")
 
 func processar_fisico(delta:float)->void:

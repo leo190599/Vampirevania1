@@ -5,6 +5,7 @@ var atacando:bool
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
+	jogador.ativar_hitbox_abaixado()
 	jogador.referenciaSpriteAtaque.visible=true
 	jogador.referenciaSpriteAtaque.play("Ataque")
 	

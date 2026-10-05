@@ -271,7 +271,7 @@ shape = SubResource("RectangleShape2D_pauaf")
 position = Vector2(0, -64.11999)
 scale = Vector2(3.93, 3.93)
 sprite_frames = SubResource("SpriteFrames_jlbfa")
-animation = &"UsandoSubItemNaEscada"
+animation = &"Abaixado"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=70803438]
 position = Vector2(0, -64.119995)
@@ -296,6 +296,7 @@ shape = SubResource("RectangleShape2D_wdrlx")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="AreaDeAtaque" unique_id=616506196]
 modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
+z_index = 10
 scale = Vector2(2.02, 8.065)
 sprite_frames = SubResource("SpriteFrames_pauaf")
 animation = &"Ataque"
@@ -308,7 +309,12 @@ position = Vector2(0, -64.119995)
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1311839457]
+[node name="ColisaoEmPe" type="CollisionShape2D" parent="Hitbox" unique_id=1311839457]
+shape = SubResource("RectangleShape2D_1y1pt")
+
+[node name="ColisaoAbaixado" type="CollisionShape2D" parent="Hitbox" unique_id=2040488345]
+position = Vector2(0, 20.119995)
+scale = Vector2(1, 0.75999755)
 shape = SubResource("RectangleShape2D_1y1pt")
 
 [node name="TimerInvencibilidade" type="Timer" parent="." unique_id=970834144]

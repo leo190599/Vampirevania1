@@ -7,6 +7,7 @@ var outroDegrau:Degrau
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
+	jogador.ativar_hitbox_em_pe()
 	escada=degrau.get_parent() as Escada
 	if(!jogador.estaEmEscadas):
 		jogador.global_position=degrau.global_position

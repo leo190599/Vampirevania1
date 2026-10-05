@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dkf2cw75jwnc0"]
+
+[ext_resource type="Script" uid="uid://c47iwwt171t2l" path="res://Scripts/Interfaces/InterfaceNoJogo.gd" id="1_b481v"]
+
+[node name="InterfaceNoJogo" type="Control" unique_id=1250258623]
+custom_maximum_size = Vector2(1920, 1080)
+propagate_maximum_size = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b481v")
+
+[node name="Interface em jogo" type="Control" parent="." unique_id=955984110]
+custom_maximum_size = Vector2(1920, 1080)
+anchors_preset = 0
+
+[node name="Vida" type="ProgressBar" parent="Interface em jogo" unique_id=112611932]
+custom_maximum_size = Vector2(600, 50)
+layout_mode = 0
+offset_left = 50.0
+offset_top = 60.0
+offset_right = 650.0
+offset_bottom = 110.0
+show_percentage = false

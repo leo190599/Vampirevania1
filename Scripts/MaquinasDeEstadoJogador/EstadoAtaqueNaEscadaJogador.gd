@@ -8,6 +8,7 @@ var outroDegrau:Degrau
 
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
+	jogador.ativar_hitbox_em_pe()
 	jogador.referenciaSpriteAtaque.visible=true
 	jogador.referenciaSpriteAtaque.play("Ataque")
 	
