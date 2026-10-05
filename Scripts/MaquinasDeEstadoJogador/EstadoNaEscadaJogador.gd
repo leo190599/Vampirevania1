@@ -121,12 +121,13 @@ func processar_fisico(delta:float)->void:
 			jogador._trocar_estado(novoEstado)
 			pass
 		if(Input.is_action_just_pressed("SubItem")):
-			if(jogador.subitem.custo<=jogador.mana):
-				var novoEstado:EstadoUsandoSubItemNaEscadaJogador=EstadoUsandoSubItemNaEscadaJogador.new()
-				novoEstado.degrau=degrau
-				novoEstado.escada=escada
-				novoEstado.outroDegrau=outroDegrau
-				jogador._trocar_estado(novoEstado)
+			if(jogador.subitem):
+				if(jogador.subitem.custo<=jogador.mana):
+					var novoEstado:EstadoUsandoSubItemNaEscadaJogador=EstadoUsandoSubItemNaEscadaJogador.new()
+					novoEstado.degrau=degrau
+					novoEstado.escada=escada
+					novoEstado.outroDegrau=outroDegrau
+					jogador._trocar_estado(novoEstado)
 
 func terminar_estado()->void:
 	jogador.vel=Vector2.ZERO
