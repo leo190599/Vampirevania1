@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dvnlbk5kee5h5"]
+
+[ext_resource type="Texture2D" uid="uid://cokwtat23rat6" path="res://Placeholder/Legacy Collection/Assets/Gothicvania/Misc/fantasy weapons set/PNG/7.png" id="1_5ejqn"]
+[ext_resource type="Script" uid="uid://b1oir5q4ul4bs" path="res://Scripts/Inimigos/InimigoPlanta/ProjetilInimigoPlanta.gd" id="1_cbgyl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pauaf"]
+radius = 41.01219
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8t718"]
+radius = 41.19466
+
+[node name="ProtetilInimigoPlanta" type="CharacterBody2D" unique_id=382475129]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_cbgyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1855701307]
+shape = SubResource("CircleShape2D_pauaf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1101896835]
+scale = Vector2(2, 2)
+texture = ExtResource("1_5ejqn")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2135153064]
+rect = Rect2(-45, -45, 90, 90)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1906448217]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1003848158]
+shape = SubResource("CircleShape2D_8t718")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

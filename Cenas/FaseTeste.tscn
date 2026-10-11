@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cs1t1h8tpyn7o" path="res://Scripts/Objetos/Escada/Degrau.gd" id="9_nxqjs"]
 [ext_resource type="TileSet" uid="uid://cld518ngeq6jb" path="res://Tilesets/TilesetEscada.tres" id="10_wqlrc"]
 [ext_resource type="PackedScene" uid="uid://yscc80sd1ykx" path="res://Prefabs/Inimigos/InimigoCaveira/InimigoCaveira.tscn" id="14_2ryh1"]
+[ext_resource type="PackedScene" uid="uid://bs3lll7jl7g10" path="res://Prefabs/Inimigos/InimigoPlanta/InimigoPlanta.tscn" id="15_0ho33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pauaf"]
 size = Vector2(60, 10)
@@ -127,3 +128,7 @@ tile_set = ExtResource("10_wqlrc")
 [node name="InimigoCaveira" parent="." unique_id=4912579 instance=ExtResource("14_2ryh1")]
 position = Vector2(1139.0001, 157.00009)
 scale = Vector2(5, 5)
+
+[node name="InimigoPlanta" parent="." unique_id=2134725415 instance=ExtResource("15_0ho33")]
+position = Vector2(797, 893.99994)
+scale = Vector2(5.4567914, 5.4567914)
