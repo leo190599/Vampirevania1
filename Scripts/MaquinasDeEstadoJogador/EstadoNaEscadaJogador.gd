@@ -123,7 +123,7 @@ func processar_fisico(delta:float)->void:
 			pass
 		if(Input.is_action_just_pressed("SubItem")):
 			if(jogador.subitem):
-				if(jogador.subitem.custo<=jogador.mana):
+				if(jogador.subitem.custo<=jogador.vida):
 					var novoEstado:EstadoUsandoSubItemNaEscadaJogador=EstadoUsandoSubItemNaEscadaJogador.new()
 					novoEstado.degrau=degrau
 					novoEstado.escada=escada

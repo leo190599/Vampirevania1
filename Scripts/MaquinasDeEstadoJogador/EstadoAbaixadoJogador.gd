@@ -16,5 +16,5 @@ func processar_fisico(delta:float)->void:
 		jogador._trocar_estado(EstadoAtaqueAbaixadoJogador.new())
 	if (Input.is_action_just_pressed("SubItem")):
 		if(jogador.subitem!=null):
-			if(jogador.mana>=jogador.subitem.custo):
+			if(jogador.vida>=jogador.subitem.custo):
 				jogador._trocar_estado(EstadoUsandoSubItemJogador.new())

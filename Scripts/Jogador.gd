@@ -4,7 +4,7 @@ class_name Jogador
 #Variaveis de design
 @export var vida:int=100
 @export var vida_max:int=100
-@export var mana:int=10
+#@export var mana:int=10
 @export var mana_max:int=10
 
 @export var dano:int=2
@@ -36,12 +36,13 @@ func _ready() -> void:
 	cena=get_tree().current_scene as Cena
 	if(!cena.interface):
 		push_error("interface indisponivel, checar ordem dos nodes")
-	cena.interface.setar_porcentagem_barra_de_vida((vida/vida_max)*100)
+	cena.interface.setar_porcentagem_barra_de_vida((float(vida)/float(vida_max))*100)
 	area_deteccao_degraus=$AreaDetecaoEscada
 	area_deteccao_pulo=$AreaDetecaoCimaPulo
 	area_deteccao_chao=$Area2D
 	referenciaSprite=$Sprite2D
 	referenciaSpriteAtaque=$AreaDeAtaque/Sprite2D
+	
 	referenciaSpriteAtaque.visible=false
 	_trocar_estado(EstadoNoArJogador.new())
 	pass # Replace with function body.
@@ -78,8 +79,9 @@ func flipar_jogador(direita:bool)->void:
 	pass
 func usar_sub_item()->void:
 	if(subitem!=null):
-		if(mana>subitem.custo):
-			mana-=subitem.custo
+		if(vida>subitem.custo):
+			vida-=subitem.custo
+			cena.interface.setar_porcentagem_barra_de_vida((float (vida)/float(vida_max))*100)
 			var novo_subItem:SubitemBase=subitem.subitem.instantiate()
 			novo_subItem.olhando_para_direita=olhando_para_direita
 			novo_subItem.jogador=self
@@ -95,6 +97,7 @@ func trocar_subItem(novoSubItem:SubitemObjetoScriptavel):
 		get_tree().current_scene.call_deferred("add_child",coletavelAntigoSubItem)
 	subitem=novoSubItem
 
+@warning_ignore("shadowed_variable")
 func tomar_dano(dano:int):
 	if(podeLevarDano):
 		if(!estaEmEscadas):
@@ -151,6 +154,11 @@ func get_degrau()->Degrau:
 		if(degrau):
 			return degrau
 	return null
+
+func abaixarAreaDeAtaque()->void:
+	$AreaDeAtaque.position.y=$PosicaoYAtaqueAbaixado.position.y
+func subirAreaDeAtaque()->void:
+	$AreaDeAtaque.position.y=$PosicaoYAtaque.position.y
 
 func ativar_hitbox_abaixado():
 	$Hitbox/ColisaoAbaixado.set_deferred("disabled",false)

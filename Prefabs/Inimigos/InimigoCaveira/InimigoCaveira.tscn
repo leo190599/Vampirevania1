@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://yscc80sd1ykx"]
+
+[ext_resource type="Script" uid="uid://dk4tewm4j6e4f" path="res://Scripts/Inimigos/InimigoCaveira.gd" id="1_ylmc3"]
+[ext_resource type="Texture2D" uid="uid://c76lxsuk5n00p" path="res://Placeholder/Legacy Collection/Assets/Misc/colorful-tileset/PNG/layers/cloud.png" id="2_bsvuu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pauaf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8t718"]
+
+[sub_resource type="Animation" id="Animation_16oha"]
+resource_name = "PiscarDano"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Caveira/Sprite2D:modulate")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c1ykt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Caveira/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8hx8h"]
+_data = {
+&"PiscarDano": SubResource("Animation_16oha"),
+&"RESET": SubResource("Animation_c1ykt")
+}
+
+[node name="InimigoCaveira" type="CharacterBody2D" unique_id=4912579]
+script = ExtResource("1_ylmc3")
+vel_y = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1359107655]
+shape = SubResource("CircleShape2D_pauaf")
+
+[node name="Caveira" type="Area2D" parent="." unique_id=1470420193]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caveira" unique_id=1881781548]
+shape = SubResource("CircleShape2D_8t718")
+
+[node name="Sprite2D" type="Sprite2D" parent="Caveira" unique_id=280565432]
+scale = Vector2(0.24797985, 0.24797985)
+texture = ExtResource("2_bsvuu")
+
+[node name="AlturaMaxY" type="Node2D" parent="." unique_id=236040871]
+
+[node name="AlturaMinY" type="Node2D" parent="." unique_id=571335025]
+position = Vector2(0, 204)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=499307252]
+libraries/ = SubResource("AnimationLibrary_8hx8h")
+
+[connection signal="area_entered" from="Caveira" to="." method="_on_caveira_area_entered"]
+[connection signal="area_exited" from="Caveira" to="." method="_on_caveira_area_exited"]

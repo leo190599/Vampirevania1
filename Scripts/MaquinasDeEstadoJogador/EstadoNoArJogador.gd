@@ -21,7 +21,7 @@ func processar_fisico(delta:float)->void:
 			jogador._trocar_estado(EstadoAtaqueNoArJogador.new())
 		if(Input.is_action_just_pressed("SubItem")):
 			if(jogador.subitem!=null):
-				if(jogador.mana>=jogador.subitem.custo):
+				if(jogador.vida>=jogador.subitem.custo):
 					jogador._trocar_estado(EstadoUsandoSubItemNoArJogador.new())
 		if(jogador.area_deteccao_chao.has_overlapping_bodies() and jogador.vel.y>0):
 			jogador.vel.y=0

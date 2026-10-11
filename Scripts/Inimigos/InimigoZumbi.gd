@@ -51,4 +51,5 @@ func _on_timer_mudar_de_direcao_timeout() -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	$TimerMudarDeDirecao.paused=true
+	ativado=false
 	pass # Replace with function body.

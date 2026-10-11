@@ -6,6 +6,7 @@ var atacando:bool
 func iniciar_estado(parametrojogador:Jogador)->void:
 	super(parametrojogador)
 	jogador.ativar_hitbox_abaixado()
+	jogador.abaixarAreaDeAtaque()
 	jogador.referenciaSpriteAtaque.visible=true
 	jogador.referenciaSpriteAtaque.play("Ataque")
 	
@@ -25,6 +26,7 @@ func evento_fim_da_animacao():
 
 func terminar_estado()->void:
 	jogador.referenciaSpriteAtaque.visible=false
+	jogador.subirAreaDeAtaque()
 	jogador.limpar_lista_inimigos()
 	jogador.limpar_lista_de_itens_quebraveis()
 

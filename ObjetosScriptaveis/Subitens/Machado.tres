@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SubitemObjetoScriptavel" format=3 uid="uid://dopybnfy1udvn"]
+
+[ext_resource type="Script" uid="uid://bqfd3wsec6pbt" path="res://Scripts/ObjetosScriptaveis/SubitemObjetoScriptavel.gd" id="1_od4a8"]
+[ext_resource type="Texture2D" uid="uid://cxdbdhdfqo13x" path="res://icon.svg" id="2_1o43k"]
+[ext_resource type="PackedScene" uid="uid://dvba7pwyqhql7" path="res://Prefabs/SubItens/Machado.tscn" id="3_bjqo1"]
+
+[resource]
+script = ExtResource("1_od4a8")
+sprite = ExtResource("2_1o43k")
+custo = 2
+subitem = ExtResource("3_bjqo1")
+metadata/_custom_type_script = "uid://bqfd3wsec6pbt"

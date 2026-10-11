@@ -16,7 +16,7 @@ func processar_fisico(delta:float)->void:
 		jogador._trocar_estado(EstadoAtaqueJogador.new())
 	elif (Input.is_action_just_pressed("SubItem")):
 		if(jogador.subitem!=null):
-			if(jogador.mana>=jogador.subitem.custo):
+			if(jogador.vida>=jogador.subitem.custo):
 				jogador._trocar_estado(EstadoUsandoSubItemJogador.new())
 	elif(Input.is_action_pressed("Direita")):
 		jogador.olhando_para_direita=true
