@@ -4,6 +4,10 @@ class_name ProjetilInimigoPlanta
 var vel:Vector2=Vector2.ZERO
 @export var gravidade:float=5
 @export var dano=1
+@export var vel_rotacao:float=.1
+
+func _process(delta: float) -> void:
+	$Sprite2D.rotate(vel_rotacao*delta)
 
 func _physics_process(delta: float) -> void:
 	vel.y+=gravidade

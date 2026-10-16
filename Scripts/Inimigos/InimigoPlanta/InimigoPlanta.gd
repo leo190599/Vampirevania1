@@ -11,6 +11,7 @@ var gerador_de_numeros_aleatorios:RandomNumberGenerator
 
 func _ready() -> void:
 	gerador_de_numeros_aleatorios=RandomNumberGenerator.new()
+	$Sprite2D.play("idle")
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	$Timer.start()
@@ -53,5 +54,6 @@ func tomar_dano(dano:int):
 		queue_free()
 
 func _on_timer_timeout() -> void:
+	$Sprite2D.play("Ataque")
 	spawnar_projeteis()
 	pass # Replace with function body.

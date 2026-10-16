@@ -9,7 +9,7 @@
 
 [sub_resource type="Animation" id="Animation_16oha"]
 resource_name = "PiscarDano"
-length = 0.39999999999999997
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -45,6 +45,8 @@ _data = {
 }
 
 [node name="InimigoCaveira" type="CharacterBody2D" unique_id=4912579]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_ylmc3")
 vel_y = 3
 

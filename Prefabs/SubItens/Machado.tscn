@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dvba7pwyqhql7"]
 
 [ext_resource type="Script" uid="uid://v2yjdy3ej4wa" path="res://Scripts/Subitens/Machado.gd" id="1_qqu7t"]
-[ext_resource type="Texture2D" uid="uid://cxdbdhdfqo13x" path="res://icon.svg" id="2_q18pp"]
+[ext_resource type="Texture2D" uid="uid://da1obvtqbcyio" path="res://Sprites/SubItens/Foice.png" id="2_qqu7t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pauaf"]
 radius = 65.62012
@@ -16,7 +16,8 @@ vel_y = -24.0
 vel_rotacao = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1965094379]
-texture = ExtResource("2_q18pp")
+scale = Vector2(6, 6)
+texture = ExtResource("2_qqu7t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=237865427]
 shape = SubResource("CircleShape2D_pauaf")

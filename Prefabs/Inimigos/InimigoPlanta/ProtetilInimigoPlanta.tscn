@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dvnlbk5kee5h5"]
 
-[ext_resource type="Texture2D" uid="uid://cokwtat23rat6" path="res://Placeholder/Legacy Collection/Assets/Gothicvania/Misc/fantasy weapons set/PNG/7.png" id="1_5ejqn"]
 [ext_resource type="Script" uid="uid://b1oir5q4ul4bs" path="res://Scripts/Inimigos/InimigoPlanta/ProjetilInimigoPlanta.gd" id="1_cbgyl"]
+[ext_resource type="Texture2D" uid="uid://m7ckqlbbwbrh" path="res://Sprites/Planta/projetil planta.png" id="2_cbgyl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pauaf"]
 radius = 41.01219
@@ -18,8 +18,8 @@ script = ExtResource("1_cbgyl")
 shape = SubResource("CircleShape2D_pauaf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1101896835]
-scale = Vector2(2, 2)
-texture = ExtResource("1_5ejqn")
+scale = Vector2(5.235, 5.235)
+texture = ExtResource("2_cbgyl")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2135153064]
 rect = Rect2(-45, -45, 90, 90)

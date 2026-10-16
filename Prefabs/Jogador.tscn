@@ -102,7 +102,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Atacando",
-"speed": 2.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -110,7 +110,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"AtacandoAbaixado",
-"speed": 2.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -118,7 +118,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"AtacandoNaEscada",
-"speed": 2.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -126,7 +126,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"AtaqueNoAr",
-"speed": 2.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -203,7 +203,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"UsandoSubItem",
-"speed": 2.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -211,7 +211,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"UsandoSubItemNaEscada",
-"speed": 2.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -219,7 +219,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"UsandoSubItemNoAr",
-"speed": 2.0
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8t718"]
@@ -271,7 +271,7 @@ shape = SubResource("RectangleShape2D_pauaf")
 position = Vector2(0, -64.11999)
 scale = Vector2(3.93, 3.93)
 sprite_frames = SubResource("SpriteFrames_jlbfa")
-animation = &"AtacandoAbaixado"
+animation = &"UsandoSubItemNoAr"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=70803438]
 position = Vector2(0, -64.119995)

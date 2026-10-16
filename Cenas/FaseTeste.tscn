@@ -102,7 +102,6 @@ shape = SubResource("RectangleShape2D_8t718")
 debug_color = Color(0.74681205, 0.20788783, 1, 0.41960785)
 
 [node name="TilesFundo" type="Node2D" parent="." unique_id=1058341748]
-visible = false
 position = Vector2(0, -762)
 scale = Vector2(6, 6)
 
@@ -130,5 +129,4 @@ position = Vector2(1139.0001, 157.00009)
 scale = Vector2(5, 5)
 
 [node name="InimigoPlanta" parent="." unique_id=2134725415 instance=ExtResource("15_0ho33")]
-position = Vector2(797, 893.99994)
-scale = Vector2(5.4567914, 5.4567914)
+position = Vector2(1410, 845)
