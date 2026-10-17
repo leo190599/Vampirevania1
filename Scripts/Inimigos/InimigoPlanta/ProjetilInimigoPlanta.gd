@@ -5,6 +5,10 @@ var vel:Vector2=Vector2.ZERO
 @export var gravidade:float=5
 @export var dano=1
 @export var vel_rotacao:float=.1
+@export var vel_max_rotacao=5
+
+func _ready() -> void:
+	vel_rotacao=RandomNumberGenerator.new().randf_range(-vel_max_rotacao,vel_max_rotacao)
 
 func _process(delta: float) -> void:
 	$Sprite2D.rotate(vel_rotacao*delta)

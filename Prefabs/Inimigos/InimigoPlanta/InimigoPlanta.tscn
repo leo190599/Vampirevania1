@@ -85,7 +85,10 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_xca7t")
 projetil = ExtResource("2_1vpjr")
-vel_y_max_projetil = 300.0
+vel_x_min_projetil = 50.0
+vel_x_max_projetil = 150.0
+vel_y_min_projetil = 250.0
+vel_y_max_projetil = 450.0
 vida_deixada = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1748874725]

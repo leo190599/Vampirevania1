@@ -286,8 +286,8 @@ limit_left = 0
 limit_bottom = 1080
 
 [node name="AreaDeAtaque" type="Area2D" parent="." unique_id=891549444]
-position = Vector2(134, -62.119987)
-scale = Vector2(2.195713, 0.35264763)
+position = Vector2(92, -62.119987)
+scale = Vector2(1.4869783, 0.23881963)
 collision_layer = 0
 collision_mask = 24
 
