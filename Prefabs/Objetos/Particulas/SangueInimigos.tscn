@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bahh5l3q4j100"]
+
+[ext_resource type="Script" uid="uid://sauc87b2yxyv" path="res://Scripts/Objetos/SangueInimigos.gd" id="1_faccp"]
+
+[sub_resource type="Gradient" id="Gradient_ad2q7"]
+offsets = PackedFloat32Array(0.00295858, 0.7928994, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ad2q7"]
+gradient = SubResource("Gradient_ad2q7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ad2q7"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 65.14
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, 0, 0)
+radial_velocity_min = 11.559978
+radial_velocity_max = 335.25998
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 29.9
+color = Color(1, 0.18, 0.18, 1)
+color_ramp = SubResource("GradientTexture1D_ad2q7")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[node name="SangueInimigos" type="GPUParticles2D" unique_id=373361685]
+z_index = 10
+amount = 16
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ad2q7")
+script = ExtResource("1_faccp")
+
+[node name="Timer" type="Timer" parent="." unique_id=394741458]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

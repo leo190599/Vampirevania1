@@ -51,6 +51,7 @@ func tomar_dano(dano:int):
 	vida-=dano
 	$AnimationPlayer.play("PiscarDano")
 	if(vida<=0):
+		morrer()
 		queue_free()
 
 func _on_timer_timeout() -> void:

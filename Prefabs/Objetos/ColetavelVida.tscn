@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dxxk6an1bv40o"]
+
+[ext_resource type="Texture2D" uid="uid://cxdbdhdfqo13x" path="res://icon.svg" id="1_55wpt"]
+[ext_resource type="Script" uid="uid://bdkj6tkfk2aui" path="res://Scripts/Objetos/ColetavelVida.gd" id="1_304uv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pauaf"]
+radius = 64.28063
+
+[sub_resource type="Animation" id="Animation_304uv"]
+resource_name = "Flutuar"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.86, 1.8666667, 2.9333334, 4.0733337, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(16, -12), Vector2(-44, 23), Vector2(-24, -18), Vector2(37, 37), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.86, 1.8666667, 2.9333334, 4.0733337, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(16, -12), Vector2(-44, 23), Vector2(-24, -18), Vector2(37, 37), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_khcej"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xq521"]
+_data = {
+&"Flutuar": SubResource("Animation_304uv"),
+&"RESET": SubResource("Animation_khcej")
+}
+
+[node name="ColetavelVida" type="Area2D" unique_id=1446246950]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_304uv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1057474434]
+position = Vector2(15.812383, -11.859287)
+shape = SubResource("CircleShape2D_pauaf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1949086760]
+position = Vector2(15.812383, -11.859287)
+texture = ExtResource("1_55wpt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=350251627]
+libraries/ = SubResource("AnimationLibrary_xq521")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

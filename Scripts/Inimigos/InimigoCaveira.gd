@@ -28,6 +28,15 @@ func tomar_dano(dano:int):
 	vida-=dano
 	$AnimationPlayer.play("PiscarDano")
 	if(vida<=0):
+		var particulas:SangueInimigos=sangueInimigos.instantiate()
+		particulas.position=caveira.global_position
+		get_tree().current_scene.add_child(particulas)
+		
+		var novo_coletavel_vida:ColetavelVida=coletavel_vida.instantiate()
+		novo_coletavel_vida.quantidade_de_vida=vida_deixada
+		novo_coletavel_vida.position=caveira.global_position
+		get_tree().current_scene.call_deferred("add_child",novo_coletavel_vida)
+	
 		queue_free()
 	
 func _on_caveira_area_entered(area: Area2D) -> void:

@@ -6,6 +6,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_pauaf"]
 radius = 65.62012
 
+[sub_resource type="Curve" id="Curve_qqu7t"]
+_data = [Vector2(0.01682692, 0.08928573), 0.0, 0.0, 0, 0, Vector2(0.8125, 0.92857146), 0.0, 0.0, 0, 0, Vector2(0.9951924, 0.90476197), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="Machado" type="Area2D" unique_id=1142860698]
 collision_layer = 0
 collision_mask = 8
@@ -25,5 +29,22 @@ shape = SubResource("CircleShape2D_pauaf")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1309511975]
 rect = Rect2(-77, -77, 154, 154)
 
+[node name="Timer" type="Timer" parent="." unique_id=1179714175]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Timer linha" type="Timer" parent="." unique_id=1475357683]
+wait_time = 0.005
+autostart = true
+
+[node name="Line2D" type="Line2D" parent="." unique_id=362625776]
+z_index = -9
+width = 30.0
+width_curve = SubResource("Curve_qqu7t")
+default_color = Color(0, 0, 0, 1)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer linha" to="." method="_on_timer_linha_timeout"]

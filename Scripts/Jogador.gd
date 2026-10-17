@@ -155,6 +155,10 @@ func get_degrau()->Degrau:
 			return degrau
 	return null
 
+func curar(cura:int):
+	vida=clamp(vida+cura,0,vida_max)
+	cena.interface.setar_porcentagem_barra_de_vida((float (vida)/float(vida_max))*100)
+
 func abaixarAreaDeAtaque()->void:
 	$AreaDeAtaque.position.y=$PosicaoYAtaqueAbaixado.position.y
 func subirAreaDeAtaque()->void:

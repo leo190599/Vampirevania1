@@ -29,7 +29,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Ataque",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -86,6 +86,7 @@ collision_mask = 0
 script = ExtResource("1_xca7t")
 projetil = ExtResource("2_1vpjr")
 vel_y_max_projetil = 300.0
+vida_deixada = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1748874725]
 shape = SubResource("RectangleShape2D_pauaf")
@@ -93,7 +94,7 @@ shape = SubResource("RectangleShape2D_pauaf")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=167043222]
 scale = Vector2(7.35, 7.35)
 sprite_frames = SubResource("SpriteFrames_pauaf")
-animation = &"idle"
+animation = &"Ataque"
 
 [node name="PontoDeSpawn1" type="Node2D" parent="." unique_id=357372587]
 position = Vector2(-3, -62)

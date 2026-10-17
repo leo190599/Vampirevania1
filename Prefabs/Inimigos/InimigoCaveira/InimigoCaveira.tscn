@@ -49,6 +49,7 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_ylmc3")
 vel_y = 3
+vida_deixada = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1359107655]
 shape = SubResource("CircleShape2D_pauaf")
